@@ -56,6 +56,10 @@ p {
     display: block;
 }
 
+/* Animations to refer to */
+
+
+
 
 /* Stylizing game elements */
 
@@ -64,6 +68,7 @@ p {
     height: 42.19409282700422vw;
     margin: 0px 0vw 0vw 40px;
     border: black solid 1px;
+    /* overflow: hidden; */
 }
 
 #game {
@@ -86,6 +91,7 @@ p {
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 20;
 }
 
 #a_container0 {
@@ -155,24 +161,91 @@ p {
     width: 4.641350210970464vw;
     height: 6.13vw;
     position: absolute;
-    top: 18vw;
-    right: 35vw;
     /* border: black solid 1px; */
 }
 
 #a_sprite1 {
+    position: relative;
+    left: 2.5vw;
+}
+
+.green_ghost {
     background-image: url('../assets/images/green_ghost.svg');
     background-size: 100%;
     width: 100%;
     height: 100%;
+    filter: drop-shadow(0px 0px 20px rgb(109, 255, 109));
+}
+
+.plus_10_points {
+    background-image: url('../assets/images/plus10.svg');
+    background-size: 100%;
+    width: 100%;
+    height: 2.3vw;
+    animation: plus_10_points 2s linear;
+}
+
+@keyframes plus_10_points {
+    from {}
+
+    to {
+        transform: translateY(-3vw);
+        opacity: 0%;
+    }
+}
+
+
+
+.position1 {
+    top: 10vw;
+    left: -8vw;
+    /* border: black solid 1px; */
+}
+
+.moveRight {
+    animation: moveRight 5s linear infinite;
+}
+
+@keyframes moveRight {
+    to {
+        transform: translateX(100vw);
+    }
+}
+
+.fly {
+    animation: fly 3s linear infinite;
+}
+
+@keyframes fly {
+    0% {}
+
+    25% {
+        transform: rotate(20deg) translate(20vw);
+    }
+
+    50% {
+        transform: translate(45vw) rotate(-20deg);
+    }
+
+    75% {
+        transform: rotate(5deg) translate(65vw);
+    }
+
+    100% {
+        transform: rotate(-5deg) translate(90vw);
+        /* transform: rotate(20deg) translateX(100vw); */
+    }
+}
+
+.paused {
+    animation-play-state: paused;
 }
 
 /* Game Ui */
 
 #game_ui {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    z-index: 21;
 }
 
 #score_board {
