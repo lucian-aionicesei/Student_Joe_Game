@@ -102,7 +102,7 @@ p {
     height: 100%;
     background-size: 100%;
     background-image: url('../assets/images/joe.svg');
-    animation: joe_reads 6s 5s linear infinite alternate;
+    animation: joe_reads 6s .2s linear infinite alternate;
 }
 
 /* .joe_smiling {
@@ -134,15 +134,15 @@ p {
         background-image: url('../assets/images/joe.svg');
     }
 
-    78% {
+    78.5% {
         background-image: url('../assets/images/joe_book_1.svg');
     }
 
-    79% {
+    80% {
         background-image: url('../assets/images/joe_book_2.svg');
     }
 
-    80% {
+    81.5% {
         background-image: url('../assets/images/joe_book_3.svg');
     }
 

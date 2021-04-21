@@ -1,34 +1,24 @@
-
 // alert("hello console");
-
 // console.log("hello world");
 
-// rotate();
+addPosition1();
+moveToRight1();
 
-position1();
-
-moveRight();
-
-paused();
-
-unpaused();
-
-function rotate() {
-    document.querySelector("#a_container1").classList.add("rotate");
-}
-
-function moveRight() {
-    document.querySelector("#a_container1").classList.add("moveRight");
-}
-
-function position1() {
+function addPosition1() {
+    console.log("addPosition1");
     document.querySelector("#a_container1").classList.add("position1");
 }
 
-function paused() {
-    console.log("paused").document.querySelector("#a_container1").classList.add("paused");
+function moveToRight1() {
+    console.log("moveToRight");
+    document.querySelector("#a_container1").classList.add("moveRight");
 }
 
-function unpaused() {
-    console.log("unpaused").document.querySelector("#a_container1").classList.remove("paused");
+function pauseAnimation() {
+    console.log("pauseAnimation");
+    document.querySelector("#a_container1").classList.add("paused");
+}
+
+function unpauseAnimation() {
+    document.querySelector("#a_container1").classList.remove("paused");
 }
