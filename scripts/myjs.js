@@ -1,60 +1,55 @@
-// alert("hello console");
-// console.log("hello world");
+window.addEventListener("load", start);
 
-addPosition1();
-fly();
-// moveToRight1();
-// pauseAnimation();
+let motivation = 3;
+let points = 0;
 
+function start() {
+    console.log("start");
+    document.querySelector("#time_counter").classList.add("time_countdown");
+    document.querySelector("#time_counter").addEventListener("animationend", time_is_over);
 
-function addPosition1() {
-    console.log("addPosition1");
-    document.querySelector("#a_container1").classList.add("position1");
+    // Green_Ghost_1
+    document.querySelector("#a_container1").classList.add("position" + generateRandomNumber(6));
+    document.querySelector("#a_container1").classList.add("flyToRight" +  generateRandomNumber(2));
+    // Click eventListener
+    document.querySelector("#a_container1").addEventListener("click", clickGreenGhost1);
+    // Add eventlisteners: animationiteration
+    document.querySelector("#a_container1").addEventListener("animationiteration", restart_GreenGhost1);
+
 }
 
-function fly() {
-    document.querySelector("#a_container1").classList.add("fly");
+function time_is_over() {
+    console.log("finito!");
 }
 
-document.querySelector("#mute_button").addEventListener("click", mute);
-
-document.querySelector("#play_pause_button").addEventListener("click", pause);
-
-document.querySelector("#a_container1").addEventListener("click", pauseAnimation);
-
-document.querySelector("#a_container1", "#a_sprite1").addEventListener("click", add_10_points);
-
-function add_10_points() {
-    console.log("added_10_points");
-    document.querySelector("#a_sprite1").classList.toggle("plus_10_points");
-    document.querySelector("#a_sprite1").addEventListener("animationend", restart);
+function generateRandomNumber(number) {
+    let rdmNb = Math.floor(Math.random() * number) + 1;
+    return rdmNb;
 }
 
-function moveToRight1() {
-    console.log("moveToRight");
-    document.querySelector("#a_container1").classList.add("moveRight");
-}
+// Green_Ghost_1
 
+function clickGreenGhost1() {
 
-function pauseAnimation() {
-    console.log("pauseAnimation");
+    console.log("clickGreenGhost1");
+    // Cancel eventListener
+    document.querySelector("#a_container1").removeEventListener("click", clickGreenGhost1);
+    // pause animation
     document.querySelector("#a_container1").classList.add("paused");
+    // Initialize add_10_points
+    document.querySelector("#a_sprite1").classList.add("plus_10_points");
+    // Play added points sound
+
+    // Get 10 points
+    points += 10;
+    // print points in Ui
+    document.querySelector("#points").textContent = points;
+    // Restart animation
+    document.querySelector("#a_sprite1").addEventListener("animationend", restart_GreenGhost1);
 }
 
-// function unpauseAnimation() {
-//     document.querySelector("#a_container1").classList.remove("paused");
-// }
-
-function mute() {
-    document.querySelector("#mute_button").classList.toggle("unmute");
-}
-
-function pause() {
-    document.querySelector("#play_pause_button").classList.toggle("play_button_1");
-}
-
-function restart() {
-    console.log("restart");
+function restart_GreenGhost1() {
+    console.log("restart_GreenGhost1");
 
     document.querySelector("#a_container1").classList = "";
     document.querySelector("#a_sprite1").classList = "";
@@ -62,10 +57,26 @@ function restart() {
     // to jump a frame
     document.querySelector("#a_container1").offsetHeight;
 
-    document.querySelector("#a_container1").classList.add("fly");
-    document.querySelector("#a_container1").classList.add("position1");
+    document.querySelector("#a_container1").classList.add("position" + generateRandomNumber(6));
+    document.querySelector("#a_container1").classList.add("flyToRight" +  generateRandomNumber(2));
     document.querySelector("#a_sprite1").classList.add("green_ghost");
-    document.querySelector("#a_container1").classList.add("paused");
-    document.querySelector("#a_container1").classList.remove("paused");
+    document.querySelector("#a_container1").addEventListener("click", clickGreenGhost1);
 
+}
+
+
+
+// Ui buttons
+// mute
+document.querySelector("#mute_button").addEventListener("click", mute);
+
+function mute() {
+    document.querySelector("#mute_button").classList.toggle("unmute");
+}
+
+// pause
+document.querySelector("#play_pause_button").addEventListener("click", pause);
+
+function pause() {
+    document.querySelector("#play_pause_button").classList.toggle("play_button_1");
 }

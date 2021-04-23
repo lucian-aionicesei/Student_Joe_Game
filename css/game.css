@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap');
+
 /* Stylizing layout */
 
 body {
@@ -91,7 +93,7 @@ p {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: 20;
+    /* z-index: 20; */
 }
 
 #a_container0 {
@@ -197,9 +199,33 @@ p {
 
 
 .position1 {
+    top: 6vw;
+    left: -8vw;
+}
+
+.position2 {
     top: 10vw;
     left: -8vw;
-    /* border: black solid 1px; */
+}
+
+.position3 {
+    top: 15vw;
+    left: -8vw;
+}
+
+.position4 {
+    top: 20vw;
+    left: -8vw;
+}
+
+.position5 {
+    top: 25vw;
+    left: -8vw;
+}
+
+ .position6 {
+    top: 30vw;
+    left: -8vw;
 }
 
 .moveRight {
@@ -212,8 +238,8 @@ p {
     }
 }
 
-.fly {
-    animation: fly 3s linear infinite;
+.flyToRight1 {
+    animation: fly 3.3s linear infinite;
 }
 
 @keyframes fly {
@@ -224,16 +250,79 @@ p {
     }
 
     50% {
-        transform: translate(45vw) rotate(-20deg);
+        transform: translate(40vw) rotate(-20deg);
     }
 
     75% {
-        transform: rotate(5deg) translate(65vw);
+        transform: rotate(5deg) translate(60vw);
+    }
+
+    95% {
+        transform: rotate(0deg) translate(85vw);
     }
 
     100% {
-        transform: rotate(-5deg) translate(90vw);
-        /* transform: rotate(20deg) translateX(100vw); */
+        transform: rotate(-5deg) translate(100vw);
+    }
+}
+
+.flyToRight2 {
+    animation: fly 3.3s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        transform: rotate(-15deg);
+    }
+
+    20% {
+        transform: rotate(-15deg) translateX(20vw);
+    }
+
+    40% {
+        transform: rotate(5deg) translateX(40vw);
+    }
+
+    60% {
+        transform: rotate(-5deg) translateX(60vw);
+    }
+
+    80% {
+        transform: rotate(4deg) translateX(80vw);
+    }
+
+    100% {
+        transform: rotate(0deg) translateX(100vw);
+    }
+}
+
+.flyToRight3 {
+    animation: fly 3.3s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    20% {
+        transform: rotate(-10deg) translateX(20vw);
+    }
+
+    40% {
+        transform: rotate(0deg) translateX(40vw);
+    }
+
+    60% {
+        transform: rotate(-3deg) translateX(60vw);
+    }
+
+    80% {
+        transform: rotate(4deg) translateX(80vw);
+    }
+
+    100% {
+        transform: rotate(0deg) translateX(100vw);
     }
 }
 
@@ -245,7 +334,11 @@ p {
 
 #game_ui {
     position: absolute;
-    z-index: 21;
+    /* z-index: 21; */
+}
+
+#game_foreground {
+    pointer-events: none;
 }
 
 #score_board {
@@ -266,6 +359,16 @@ p {
     background-size: 100%;
 }
 
+#points {
+    margin: 0;
+    position: absolute;
+    top: 1.1vw;
+    left: 1.5vw;
+    font-size: 1.7vw;
+    font-family: 'Balsamiq Sans', cursive;
+    color: cyan;
+}
+
 #time_board {
     position: absolute;
     background-image: url('../assets/images/time_bar.svg');
@@ -274,6 +377,33 @@ p {
     height: 1.6vw;
     left: 27.7vw;
     top: 1.7vw;
+}
+
+#time_counter {
+    position: absolute;
+    top: 0.17vw;
+    left: 0.16vw;
+    /* width: 17.7vw; */
+    height: 1.3vw;
+    /* border: solid black 1px; */
+    /* border-radius: 22px; */
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    background-color: rgb(112, 221, 48);
+}
+
+.time_countdown {
+    animation: time_count 45s linear;
+}
+
+@keyframes time_count {
+    from {
+        width: 17.7vw;
+    }
+
+    to {
+        width: 0vw;
+    }
 }
 
 #motivation_board {
@@ -353,6 +483,17 @@ p {
 #title_screen {
     background-image: url();
 }
+
+/* Instructions */
+
+/* #instructions {
+    position: absolute;
+    background-image: url('../assets/images/instructions_pop_up.svg');
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+} */
+
 
 /* Media queries */
 
